@@ -1,6 +1,19 @@
 FROM centos:7
 
+RUN echo -e "\
+[mongodb]\n\
+name=MongoDB Repository\n\
+baseurl=https://repo.mongodb.org/yum/redhat/7Server/mongodb-org/3.0/x86_64/\n\
+gpgcheck=0\n\
+enabled=1\n" >> /etc/yum.repos.d/mongodb.repo
+
+RUN yum install -y mongodb-org-shell
+
+
+
 ADD ./docker/user-db/scripts /tmp/scripts
+
+
 
 #RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories
 #RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/community' >> /etc/apk/repositories

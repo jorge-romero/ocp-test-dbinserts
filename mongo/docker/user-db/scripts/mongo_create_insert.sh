@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 SCRIPT_DIR=$(dirname "$0")
 MONGO_SERVICE=$1

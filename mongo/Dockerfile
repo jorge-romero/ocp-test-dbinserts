@@ -7,6 +7,8 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/community' >> /etc/apk/repos
 RUN apk update
 RUN apk add mongodb=3.4.4-r0
 #    apk add --no-cache mongodb 
+RUN ls -Al /tmp/scripts
+RUN chmod +x /tmp/scripts/mongo_create_insert.sh
 
 RUN /tmp/scripts/mongo_create_insert.sh demo-app-user-db:27017 $MONGO_USER $MONGO_PASS
 

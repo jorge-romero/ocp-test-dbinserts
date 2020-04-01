@@ -1,5 +1,6 @@
 FROM centos
 
+
 ADD ./docker/user-db/scripts /tmp/scripts
 
 #RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories

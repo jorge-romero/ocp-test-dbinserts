@@ -1,6 +1,5 @@
 FROM centos:7
 
-
 ADD ./docker/user-db/scripts /tmp/scripts
 
 #RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories
@@ -9,7 +8,7 @@ ADD ./docker/user-db/scripts /tmp/scripts
 #RUN apk add mongodb-tools=3.4.4-r0
 #    apk add --no-cache mongodb 
 
-RUN yum install -y mongodb-org-shell-4.2.5
+RUN yum install -y mongodb-org-shell
 
 
 RUN ls -Al /tmp/scripts

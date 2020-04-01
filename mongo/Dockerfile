@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7
 
 
 ADD ./docker/user-db/scripts /tmp/scripts

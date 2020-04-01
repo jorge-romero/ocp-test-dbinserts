@@ -15,6 +15,6 @@ RUN ls -Al /tmp/scripts
 RUN chmod +x /tmp/scripts/mongo_create_insert.sh
 
 RUN /tmp/scripts/mongo_create_insert.sh demo-app-user-db:27017 $MONGO_USER $MONGO_PASS
-CMD ["/tmp/scripts/mongo_create_insert.sh", "demo-app-user-db:27017"]
+CMD ["/tmp/scripts/mongo\_create\_insert.sh", "demo-app-user-db:27017"]
 #CMD ["./app_linux_amd64", "-port=8080", "-database=mongodb", "-mongo-host=demo-app-user-db:27017"]
 

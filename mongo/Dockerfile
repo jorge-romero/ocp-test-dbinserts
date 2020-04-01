@@ -1,10 +1,13 @@
-FROM alpine
+FROM alpine:3.6
 
 ADD ./docker/user-db/scripts /tmp/scripts
 
-RUN echo http://dl-3.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
-    apk upgrade --update && \
-    apk add --no-cache mongodb 
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/community' >> /etc/apk/repositories
+RUN apk update
+RUN apk add mongodb=3.4.4-r0
+#    apk add --no-cache mongodb 
+
 RUN /tmp/scripts/mongo_create_insert.sh demo-app-user-db:27017 $MONGO_USER $MONGO_PASS
 
 CMD ["./app_linux_amd64", "-port=8080", "-database=mongodb", "-mongo-host=demo-app-user-db:27017"]
